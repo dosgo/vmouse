@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1510324013 source:d:\c\vmouse\main.cpp
+	<sys/types.h>
+	<pthread.h>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<unistd.h>
+	<stdlib.h>
+
+1500710699 source:d:\c\vmouse\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1500710699 d:\c\vmouse\cjson.h
+
