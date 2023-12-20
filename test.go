@@ -64,7 +64,12 @@ func test2(){
 
     // 在新图像上绘制矩形
     rect := image.Rect(x1, y1, x1+tpl.Bounds().Size().X, y1+tpl.Bounds().Size().Y) // 这是一个例子，你可以根据需要改变矩形的大小和位置
-    draw.Draw(imgRGBA, rect, &image.Uniform{red}, image.ZP, draw.Src)
+    // 在新图像上绘制矩形的边框
+    draw.Draw(imgRGBA, image.Rect(rect.Min.X, rect.Min.Y, rect.Max.X, rect.Min.Y+1), &image.Uniform{red}, image.ZP, draw.Src) // Top line
+    draw.Draw(imgRGBA, image.Rect(rect.Min.X, rect.Max.Y-1, rect.Max.X, rect.Max.Y), &image.Uniform{red}, image.ZP, draw.Src) // Bottom line
+    draw.Draw(imgRGBA, image.Rect(rect.Min.X, rect.Min.Y, rect.Min.X+1, rect.Max.Y), &image.Uniform{red}, image.ZP, draw.Src) // Left line
+    draw.Draw(imgRGBA, image.Rect(rect.Max.X-1, rect.Min.Y, rect.Max.X, rect.Max.Y), &image.Uniform{red}, image.ZP, draw.Src) // Right line
+
 
     // 创建一个新文件，并将修改后的图像保存为PNG格式
     outFile, err := os.Create("output.png")
